@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión Interna - MVP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Conexión Interna</h1>
+        <nav>
+            <button data-target="diario">Diario Emocional</button>
+            <button data-target="respirar">Ejercicios de Respiración</button>
+            <button data-target="ayuda">Ayuda Urgente</button>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Sección 1: Diario Emocional -->
+        <section id="diario" class="content-section active">
+            <h2>Mi Diario Emocional</h2>
+            <div class="diario-container">
+                <div class="diario-form">
+                    <h3>¿Cómo te sientes hoy?</h3>
+                    <p>Registra tu estado de ánimo para conocerte mejor.</p>
+                    <div class="mood-selector">
+                        <span class="mood-emoji" data-value="1">😞</span>
+                        <span class="mood-emoji" data-value="2">😐</span>
+                        <span class="mood-emoji" data-value="3">🙂</span>
+                        <span class="mood-emoji" data-value="4">😊</span>
+                        <span class="mood-emoji" data-value="5">😁</span>
+                    </div>
+                    <input type="hidden" id="emotion-score" value="">
+                    <textarea id="thoughts-text" placeholder="Escribe aquí tus pensamientos (opcional)..."></textarea>
+                    <button id="save-entry">Guardar Entrada</button>
+                    <p id="feedback-message" class="feedback"></p>
+                </div>
+
+
+                <div class="diario-stats">
+                    <h3>Evolución de tu ánimo</h3>
+                    <div class="chart-container">
+                        <canvas id="mood-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="diario-history">
+                <h3>Historial de Entradas</h3>
+                <div id="history-list">
+                    <p>Aún no hay entradas. ¡Anímate a registrar tu primera emoción!</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección 2: Ejercicios de Respiración -->
+        <section id="respirar" class="content-section">
+            <h2>Calma tu Mente</h2>
+            <div class="breathing-exercise">
+                <p id="breathing-instruction">Presiona "Iniciar" para comenzar el ejercicio de respiración 4-7-8.</p>
+                <div class="breathing-circle-container">
+                    <div id="breathing-circle"></div>
+                </div>
+                <div class="controls">
+                    <button id="start-breathing">Iniciar</button>
+                    <button id="stop-breathing" style="display: none;">Detener</button>
+                </div>
+                <hr>
+                <p>¿Necesitas un respiro rápido?</p>
+                 <button id="quick-stress-release" class="stress-button">Exhala Tu Estrés</button>
+            </div>
+             <!-- NOTA: Debes proporcionar tu propio archivo de audio. -->
+            <audio id="breathing-audio" src="audio/breathing-guide.mp3" preload="auto"></audio>
+        </section>
+
+
+        <!-- Sección 3: Ayuda Urgente -->
+        <section id="ayuda" class="content-section">
+            <h2>Contacto de Emergencia</h2>
+            <div class="emergency-info">
+                <div class="warning-box">
+                    <p><strong>Importante:</strong> Esta aplicación es una herramienta de apoyo, pero <strong>no reemplaza la ayuda de un profesional</strong>. Si estás en una crisis o sientes que tu vida o la de alguien más está en peligro, busca ayuda profesional de inmediato.</p>
+                </div>
+                <h3>Recursos en España:</h3>
+                <ul>
+                    <li><strong>Emergencias Generales:</strong> <a href="tel:112">112</a></li>
+                    <li><strong>Teléfono de la Esperanza:</strong> <a href="tel:717003717">717 003 717</a> (Disponible 24h. Apoyo para crisis emocionales).</li>
+                     <li><strong>Teléfono contra el Suicidio:</strong> <a href="tel:024">024</a> (Línea de atención a la conducta suicida).</li>
+                    <li><strong>Servicios de Urgencias Médicas:</strong> <a href="tel:061">061</a></li>
+                </ul>
+                <p>No dudes en llamar. Hay personas dispuestas a ayudarte.</p>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
